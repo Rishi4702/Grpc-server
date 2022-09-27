@@ -1,0 +1,3 @@
+obj\Debug\netcoreapp3.1\Protos/Service.cs \
+obj\Debug\netcoreapp3.1\Protos/ServiceGrpc.cs: C:/Users/golur/.nuget/packages/grpc.tools/2.45.0/build/native/include/google/protobuf/Empty.proto\
+ Protos/service.proto

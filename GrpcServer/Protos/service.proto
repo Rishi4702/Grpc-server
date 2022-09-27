@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "google/protobuf/Empty.proto";
+
+
+service GRPCservice {
+	rpc RepeatString (RepeatStringRequest) returns (RepeatStringReply) {};
+	rpc UploadImage (UploadImageRequest) returns (UploadImageReply) {}; 
+	rpc DownloadImage (google.protobuf.Empty) returns (stream DownloadImageResponse) {}; 
+	rpc send(send_data)returns(read_data){};
+	rpc first(NewCustomerRequest)returns( stream send_data);
+}
+
+message NewCustomerRequest{
+
+}
+message CustomerModel{
+	string firstname=1;
+	string lastname=2;
+	string emailAddress=3;
+	bool isAlive=4;
+	int32 age=5;
+}
+message send_data{
+	int32 id =1;
+	string name =2;
+	float height =3;
+	bool isMale =4;
+
+}
+ message read_data{
+	 string data_reply= 2;
+ }
+// Different types
+message RepeatStringRequest {
+	string str = 1;
+	int32 num = 2;
+}
+
+message RepeatStringReply {
+	string result = 1;
+}
+
+
+// Image upload
+message UploadImageRequest {
+	string image = 1;
+}
+
+message UploadImageReply {
+	string result = 1;
+}
+
+// Image Download
+message DownloadImageResponse {
+	bytes image = 1;
+}
